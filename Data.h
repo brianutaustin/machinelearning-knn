@@ -1,6 +1,5 @@
 #include <cmath>
 #include <string>
-#include <fstream>
 
 structure DataStructure {
 	/* Common variables */
@@ -12,25 +11,29 @@ structure DataStructure {
 
 	/* Variable added for Test Data points */
 	int		ClasskNNID;
-
-	/* variable added for kNN Train points */
-	float		DistanceToTestPoint;
 };
 
 class Data {
 public:
 	Data();
-	Data(std::string);
 	~Data();
 
 	/* Get methods */
-	int										GetNTrainPoints();
-	int										GetNTestPoints();
-
+	int										GetNTrain();
+	int										GetNTest();
 	std::vector<DataStructure>			GetTrainPoints(int);
 	std::vector<DataStructure>			GetTestPoints(int);
+
+	/* Import data */
+	void 										ImportData(std::string);
+
+	/* Set methods */
+	/* Used only for the Test points to set the ClasskNNID variable */
+//	void 										SetTestkNNID(int);
+
 private:
-	std::vector<DataStructure> 		fTrainData;
-	std::vector<DataStructure>			fTestData;
-	std::vector<DataStructure>			fNNPointsData;
+	std::vector<DataStructure> 		fTrainPoints;
+	std::vector<DataStructure>			fTestPoints;
+	int										fNTrain;
+	int										fNTest;
 };
