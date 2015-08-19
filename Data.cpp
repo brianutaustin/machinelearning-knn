@@ -1,6 +1,9 @@
 #include <fstream>
 #include <sstream>
-#include <stdlib>
+#include <cstdlib>
+#include <cstring>
+
+#include <iostream>
 
 #include "Data.h"
 /* Methods definition */
@@ -11,24 +14,24 @@ Data::Data() {}
 Data::~Data() {}
 
 void Data::ImportData(std::string DataFile) {
-	std::ifstream FileInStream(DataFile);
+	std::ifstream FileInStream(DataFile.c_str());
 	std::string line;
 	if (FileInStream.is_open()) {
-		float 		sepal_length;
-		float 		sepal_width;
-		float 		petal_length;
-		float 		petal_width;
+		float sepal_length;
+		float sepal_width;
+		float petal_length;
+		float petal_width;
 		std::string	flower_name;
 		while (std::getline(FileInStream, line)) {
 			std::istringstream InStringStream(line);
 			InStringStream >> sepal_length >> sepal_width >> petal_length >> petal_width >> flower_name;
 
 			DataStructure DS;
-			DS.SepalLength = SepalLength;
-			DS.PetalLength = PetalLength;
-			DS.SepalWidth  = SepalWidth;
-			DS.PetalWidth  = PetalWidth;
-			DS.ClasskNNID	= 0;
+			DS.SepalLength = sepal_length;
+			DS.PetalLength = petal_length;
+			DS.SepalWidth  = sepal_width;
+			DS.PetalWidth  = petal_width;
+			DS.ClasskNNID  = 0;
 			if (flower_name == "Iris-setosa") {
 				DS.ClassTrueID = 1;
 			} else if (flower_name == "Iris-versicolor") {
@@ -52,19 +55,19 @@ void Data::ImportData(std::string DataFile) {
 /* Get methods */
 /* ------------------------------------------------------------------------------- */
 
-int GetNTrain() {
+int Data::GetNTrain() {
 	return fNTrain;
 }
 
-int GetNTest() {
+int Data::GetNTest() {
 	return fNTest;
 }
 
-std::vector<DataStructure> GetTrainPoints(int) {
+std::vector<DataStructure> Data::GetTrainPoints() {
 	return fTrainPoints;
 }
 
-std::vector<DataStructure>	GetTestPoints(int) {
+std::vector<DataStructure>	Data::GetTestPoints() {
 	return fTestPoints;
 }
 

@@ -1,16 +1,17 @@
+#include <vector>
 #include <cmath>
 #include <string>
 
-structure DataStructure {
+struct DataStructure {
 	/* Common variables */
-	float 	SepalLength;
-	float 	SepalWidth;
-	float 	PetalLength;
-	float 	PetalWidth;
-	int		ClassTrueID;
+	float    SepalLength;
+	float    SepalWidth;
+	float    PetalLength;
+	float    PetalWidth;
+	int      ClassTrueID;
 
 	/* Variable added for Test Data points */
-	int		ClasskNNID;
+	int      ClasskNNID;
 };
 
 class Data {
@@ -19,21 +20,21 @@ public:
 	~Data();
 
 	/* Get methods */
-	int										GetNTrain();
-	int										GetNTest();
-	std::vector<DataStructure>			GetTrainPoints(int);
-	std::vector<DataStructure>			GetTestPoints(int);
+	int                              GetNTrain();
+	int                              GetNTest();
+	std::vector<DataStructure>       GetTrainPoints();
+	std::vector<DataStructure>       GetTestPoints();
 
 	/* Import data */
-	void 										ImportData(std::string);
+	void                             ImportData(std::string);
 
 	/* Set methods */
 	/* Used only for the Test points to set the ClasskNNID variable */
 //	void 										SetTestkNNID(int);
 
 private:
-	std::vector<DataStructure> 		fTrainPoints;
-	std::vector<DataStructure>			fTestPoints;
-	int										fNTrain;
-	int										fNTest;
+	std::vector<DataStructure>       fTrainPoints;
+	std::vector<DataStructure>       fTestPoints;
+	int                              fNTrain;
+	int                              fNTest;
 };

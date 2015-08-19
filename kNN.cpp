@@ -10,7 +10,7 @@
 int main() {
 	Data* ValidationData = new Data();
 
-	ValidationData->ImportData("./iris.data");
+	ValidationData->ImportData("./iris.dat");
 	std::vector<DataStructure>	TrainData = ValidationData->GetTrainPoints();
 	std::vector<DataStructure>	TestData  = ValidationData->GetTestPoints();
 	int NTest  = ValidationData->GetNTest();
