@@ -11,15 +11,10 @@ int main() {
 	Data* ValidationData = new Data();
 
 	ValidationData->ImportData("./iris.dat");
-	std::vector<DataStructure>	TrainData = ValidationData->GetTrainPoints();
-	std::vector<DataStructure>	TestData  = ValidationData->GetTestPoints();
-	int NTest  = ValidationData->GetNTest();
-	int NTrain = ValidationData->GetNTrain();
+	/* Uncomment the following line in debugging mode */
+	ValidationData->Verbose();
 
-	for (int i = 0; i < NTest; i++) {
-		std::cout << "Test point: " << i << "\t";
-		std::cout << "True ID: " << TestData.at(i).ClassTrueID << std::endl;
-	}
+	
 
 	return 0;
 }

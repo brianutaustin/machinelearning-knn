@@ -32,6 +32,9 @@ public:
 	/* Used only for the Test points to set the ClasskNNID variable */
 //	void 										SetTestkNNID(int);
 
+	/* Debugging mode */
+	void                             Verbose();
+
 private:
 	std::vector<DataStructure>       fTrainPoints;
 	std::vector<DataStructure>       fTestPoints;

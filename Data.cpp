@@ -2,7 +2,6 @@
 #include <sstream>
 #include <cstdlib>
 #include <cstring>
-
 #include <iostream>
 
 #include "Data.h"
@@ -74,3 +73,18 @@ std::vector<DataStructure>	Data::GetTestPoints() {
 /* Set method for Test point's ClasskNNID */
 /* ------------------------------------------------------------------------------- */
 //void SetTestkNNID(int kNNID) {}
+
+/* Methods used for debugging mode */
+void Data::Verbose() {
+	for (int i = 0; i < fNTest; i++) {
+		std::cout << "Test point " << i +1 << "\t";
+		std::cout << "kNN ID: " << fTestPoints.at(i).ClasskNNID << "\t";
+		std::cout << "True ID: " << fTestPoints.at(i).ClassTrueID << std::endl;
+	}
+
+	for (int i = 0; i < fNTrain; i++) {
+		std::cout << "Train point " << i + 1 << "\t";
+		std::cout << "kNN ID: " << fTrainPoints.at(i).ClasskNNID << "\t";
+		std::cout << "True ID: " << fTrainPoints.at(i).ClassTrueID << std::endl;
+	}
+}
